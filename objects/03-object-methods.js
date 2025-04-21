@@ -52,42 +52,52 @@ let num2 = 3;
 console.log(add.doTheMath(num1, num2));
 
 // TODO: Call the subtractTwo function by referencing the subtract object and print the result.
-
+console.log(subtract.doTheMath(num1,num2));
 
 // TODO: Call the anonymous multiplication method in the multiple object and print the result.
+console.log(multiply.doTheMath(num1,num2));
 
-
-// TODO: Reference the object and its property key and call all three methods with new numbers passed directly as arguments for the parameters a and b. Choose whatever numbers you want.
-
+// TODO: Reference the object and its property key and call all three methods with new numbers 
+// passed directly as arguments for the parameters a and b. Choose whatever numbers you want.
+console.log(add["doTheMath"](4,5));
+console.log(subtract.doTheMath(20,12));
+console.log(multiply.doTheMath(10,8));
 
 
 /**** WRITING YOUR OWN METHODS ****/
 
 /*
-	For the three objects below, add a property called describeCandy and store a function that prints a sentence describing what it's like to enjoy that piece of candy (be creative as you want). Each function should be written a different way (so you can practice the three methods shown above). You don't need to return any values in your functions since they just print something to the console when you call them.
+	For the three objects below, add a property called describeCandy and store a function that prints a sentence 
+	describing what it's like to enjoy that piece of candy (be creative as you want).
+	 Each function should be written a different way (so you can practice the three methods shown above). 
+	 You don't need to return any values in your functions since they just print something to the console when you call them.
 
 	Tip: don't forget that object properties must be separated by commas.
 */
 
 // TODO: write a function for the peanutMMs description
-
+function peanutDescription(){
+	return console.log(`Melts in your mouth, not in your hand`);
+}
 
 let peanutMMs = {
 	name: "Peanut M&Ms",
 	type: "chocolate",
 	slogan: "Melts in your mouth, not in your hand",
-	// TODO: add describeCandy property (method) referencing your external named function
-
+	describeCandy :peanutDescription,
 };
 
 // TODO: write a function for the skittles description
 
-
+let skittles_description = function skittlesDescription()
+{
+	return console.log(`Taste the rainbow`);
+};
 let skittles = {
 	name: "Skittles",
 	type: "fruit-flavored",
 	slogan: "Taste the rainbow",
-	// TODO: add describeCandy property (method) referencing your external function that is stored in a variable
+	describeCandy: skittles_description,
 	
 };
 
@@ -95,13 +105,21 @@ let werthers = {
 	name: "Werther's Original",
 	type: "caramel",
 	slogan: "A little piece of bliss",
-	// TODO: add describeCandy property (method) as an anonymous function here inside the object... and while you're at it, mention the name and type of the candy in your sentence by referencing those properties within the object! (Hint: remember that inside an object you use "this" instead of the object name to reference its own properties.)
+	describeCandy: function (){
+		return console.log(`${this.name} with ${this.type} inside... nobody can resist!!`)
+	},
 
 };
 
 // TODO: Put all three objects in an array. Loop through to run the function for each object.
+let candies = [peanutMMs,skittles,werthers];
 
+for (candy of candies)
+	{
+		candy["describeCandy"]();
+	}
 
 /* 
-	To sum up, the major advantage of writing an anonymous function inside the object directly is that you can access other properties of the object easily without having to pass anything in through a parameter.
+	To sum up, the major advantage of writing an anonymous function inside the object directly is that you can 
+	access other properties of the object easily without having to pass anything in through a parameter.
 */
