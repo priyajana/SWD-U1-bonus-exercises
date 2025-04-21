@@ -33,6 +33,7 @@ let lunchBox = {
 }; // remember that objects should have semicolons after them!
 
 // We'll set up the loop with a meaningful variable for the keys (not just 'key')
+/*
 for (let foodItem in lunchBox) {
 	console.log(`I looked in my lunch box and found ${lunchBox[foodItem]}!`);
 }
@@ -62,10 +63,19 @@ let appleKey = searchLunchBox("apple"); // expect null
 console.log(appleKey);
 
 console.log(""); // skip a line in console
- 
-// TODO: Use what you've learned about how to access keys and values to loop through the object and print only values which belong to food items that are sides. No need to write this one as a function, just do the loop. Hint 1: you need to check the key names, not the values! Hint 2: Even though they don't look like it in the object, keys are stored as strings.
-
-
+ */
+// TODO: Use what you've learned about how to access keys and values to loop through the object and print only values which belong to food items that are sides.
+//  No need to write this one as a function, just do the loop. 
+// Hint 1: you need to check the key names, not the values!
+//  Hint 2: Even though they don't look like it in the object, keys are stored as strings.
+console.log("TODO in line 66.....");
+for (item in lunchBox)
+	{
+		if(item.includes("side"))
+			{
+				console.log(`${lunchBox[item]}`);
+			}
+	}
 
 /**** LOOPING THROUGH OBJECTS WITH ARRAYS AS VALUES ****/
 
@@ -80,7 +90,7 @@ let pantry = {
 	boxed: ["rotini pasta", "cereal", "oatmeal", "crackers", "stuffing mix"],
 	bagged: ["15-bean soup mix", "jasmine rice"]
 };
-
+/*
 // Let's print a formatted list of each property and its values. We always start with the outside and work our way in. So let's set up our for...in loop first. 
 for (let packageType in pantry) {
 	console.log(`\n${packageType.toUpperCase()}`);
@@ -89,23 +99,50 @@ for (let packageType in pantry) {
 	for (let i=0; i < pantry[packageType].length; i++) {
 		console.log(pantry[packageType][i]);
 	}
-}
+}*/
 // Run the program to see the results in the console. Nicely formatted, right? Notice how each array had a different number of items, but we handled that by taking the length of each array, as pantry[packageType] is the correct way to refer to the value of each property.
 
 console.log(""); // skip a line in console
 
-// TODO: Write a function that takes in an index number, prints "Items at index (x):" and then prints the element at that index of each array as you loop through the object. Use the escape character \t to indent each item for that index. If the array doesn't have anything at that index, it should be skipped without throwing an error. (Note: you don't need nested loops for this one.)
-
-
+// TODO: Write a function that takes in an index number, prints "Items at index (x):" and then prints the element at that index of each array as you loop through the object.
+//  Use the escape character \t to indent each item for that index.
+//  If the array doesn't have anything at that index,
+//  it should be skipped without throwing an error. (Note: you don't need nested loops for this one.)
+console.log("TODO in line 111...");
+function printElement(index)
+{
+	console.log(`Items at index ${index} of each array in pantry object:`);
+	for (item in pantry)
+		{
+			//console.log(`Items at index ${index} of ${item} are :${pantry[item][index]}`);
+			if(pantry[item].length > index)
+				{
+					console.log(`\t ${pantry[item][index]}`);
+				}
+			
+		}
+}
+printElement(1);
 // TODO: Call the function above at 2 or 3 different index numbers and check to see the results are what you expect.
-
-
-// TODO: Now write a function that takes a package type as a parameter and then prints all the items of the array only for that package type. This time, print "Items that are (type):" and then put a "- " in front of each item from that array. (Hint: if you already know the name of the package type, you don't need a for...in loop to check every property!)
-
-
+printElement(2);
+printElement(3);
+// TODO: Now write a function that takes a package type as a parameter and then 
+// prints all the items of the array only for that package type. 
+// This time, print "Items that are (type):" and then put a "- " in front of each item from that array.
+//  (Hint: if you already know the name of the package type, you don't need a for...in loop to check every property!)
+function printPackage(packageType)
+{
+	console.log(`Items that are ${packageType}:`);
+	for (item of pantry[packageType])
+		{
+			console.log(`\t - ${item}`);
+		}
+}
+printPackage('canned');
 // TODO: Call the function for a couple of the key names in the object and check the results. Remember that JavaScript stores object keys as strings, so you'll need to pass them in that way.
 
-
+printPackage('bottled');
+printPackage('bagged');
 /*
 	Great job!
 */

@@ -81,18 +81,83 @@ for (let restaurant of restaurants) {
 		- Practice nesting for loops and for...in loops.
 		- Loop back through, this time printing a template literal that uses the values for each object.
 */
+let obj1 = 
+{
+	name:'Peter Parker',
+	address:'20 Ingram Street,Forest Hills, Queens, New York',
+	mobile: '9093424344',
+	department:'Finance',
+};
+let obj2 = 
+{
+	name:'Bruce Wayne',
+	address:'1007 Mountain Drive, Gotham',
+	mobile: '32432434232',
+	department:'HR',
+};
 
+let all_objs = [obj1,obj2];
+
+for(let i=0; i<all_objs.length;i++)
+	{
+		console.log(`Printing details of Object ${i+1}`);
+		for(let key in all_objs[i])
+			{
+				console.log(`${key}: ${all_objs[i][key]}`);
+			}
+		console.log('\n');
+	}
 /*
 	Create two objects representing different local attractions (zoo, gardens, museums, etc), each with the following properties: name, location, adultTicketPrice, childTicketPrice, and famousFeatures (array of three strings). Be creative! Place the objects in an array.
 */
+let attraction1 = {
+	name :'City Museum',
+	location: '750 N 16th St, St. Louis, MO 63103', 
+	description:'City Museum is a museum whose exhibits consist largely of repurposed architectural and industrial objects',
+	adultTicketPrice: '$20', 
+	childTicketPrice: '$20', 
+	famousFeatures:['MonstroCity','Enchanted Caves','Slides','Ferris wheel'],
 
+};
+
+let attraction2 = {
+	name :'Gateway Arch',
+	location: '100 Washington Avenue, St. Louis, Missouri 63102', 
+	description:"Clad in stainless steel and built in the form of a weighted catenary arch, it is the world's tallest arch and Missouri's tallest accessible structure",
+	adultTicketPrice: '$15-19', 
+	childTicketPrice: '$11-15', 
+	famousFeatures:['Tram Ride to the Top','Documentary Movie','Museum at the Gateway Arch','Virtual Reality Theater','St. Louis Riverfront Cruise'],
+
+};
 // TODO: create objects and put them in an array
-
+let all_attractions = [attraction1,attraction2];
 /*
-	Loop through the array, then within that for loop, use a for...in loop to grab values from each key and print them to the console. If you come across a key storing an array, print each element in the array instead of the array itself. Remember that you need a new index variable with each nested FOR loop (i, j are common).
+	Loop through the array, then within that for loop, use a for...in loop to grab values from each key and print them to the console. If you come across a key storing an array, print each element in the array instead of the array itself.
+	 Remember that you need a new index variable with each nested FOR loop (i, j are common).
 
 	NOTE: This is a tough one to think through when you're new at this. If you get completely stuck, reference the solution that accompanies this starter code. But make an effort to figure it out yourself first!
 */
+for(let i=0;i<all_attractions.length;i++)
+{
+	console.log(`Printing details of Attraction ${i+1}\n`);
+	for(detail in all_attractions[i])
+		{
+			if(Array.isArray(all_attractions[i][detail]))
+			{
+					console.log(`${detail}:`);
+					for(let j=0;j<all_attractions[i][detail].length;j++)
+					{
+						console.log(`${all_attractions[i][detail][j]}`);
+					}
+				}
+			else
+			{
+				console.log(`${detail} :${all_attractions[i][detail]}`);
+			}
+		}
+	console.log("\n");
+}
+
 
 // TODO: use nested loops to print values inside objects
 
@@ -102,8 +167,19 @@ for (let restaurant of restaurants) {
 	**********************************************
 	Kendrick-Lampton Art Museum - Cedar Pointe, ID
 	**********************************************
-	A favorite with the locals, the Kendrick-Lampton Art Museum boasts over a dozen features, including the Manet Gallery, Renaissance Wing, and Tiffany Collection. Admission is $26 for adults, $14 for children ages 5-12, and free for children 4 and under.
+	A favorite with the locals, the Kendrick-Lampton Art Museum boasts over a dozen features, including the Manet Gallery, Renaissance Wing, and Tiffany Collection.
+	Admission is $26 for adults, $14 for children ages 5-12, 
+	and free for children 4 and under.
 */
+for(let i=0;i<all_attractions.length;i++)
+	{
+		console.log(`${'*'.repeat(all_attractions[i]["name"].length)}`);
+		console.log(`${all_attractions[i]["name"]} - ${all_attractions[i]["location"]}`);
+		console.log(`${'*'.repeat(all_attractions[i]["name"].length)}`);
+		
+		console.log(`${all_attractions[i]["description"]} boasts over many features, including the ${all_attractions[i]["famousFeatures"]}. Admission is ${all_attractions[i]["adultTicketPrice"]} for adults and ${all_attractions[i]["childTicketPrice"]} for children.\n`);
+		
+	}
 
 // TODO: Print a template literal
 
