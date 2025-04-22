@@ -33,7 +33,7 @@ class Donut {
 	The 'this.property' means whatever object is created from the class can have that property accessed or changed using dot notation. You'll see examples below. On the right side, the variable 'value' takes its value from whatever is passed in through the constructor arguments upon instantiation, and it can be changed later.
 	
 	However, the additional properties have to be set separately because they were not included in the constructor arguments and therefore have default values instead. (When you see "null", that's essentially taking the default position of "no value available.")
-*/
+
 
 // EXAMPLE #1
 let chocolateGlazedTwist = new Donut("yeast", "twist", true);
@@ -60,15 +60,19 @@ console.log(mapleBaconBar);
 // Oh but wait! There are also chopped pecans on that maple bacon bar. Pure decadence!
 mapleBaconBar.toppings.push("pecans"); // because toppings is an array
 console.log(mapleBaconBar); // now all three toppings show up
-
+*/
 // TODO: What's your favorite type of unbelievably fattening, sugary deliciousness?
 
-
+let freshStrawberryBar = new Donut("yeast","bar",false);
+freshStrawberryBar.filling = "custard";
+freshStrawberryBar.toppings = ["strawberries","jelly"];
+console.log(freshStrawberryBar);
 
 /**** OPTIONAL PARAMETERS ****/
 
 /*
-	Sometimes it's advantageous to set up a class so that you can instantiate the object with some, but not all, of the parameters. In this case, you can assign default values to those properties within the parameters. Just make sure those are last.
+	Sometimes it's advantageous to set up a class so that you can instantiate the object with some,
+	 but not all, of the parameters. In this case, you can assign default values to those properties within the parameters. Just make sure those are last.
 */
 
 class HouseForSale {
@@ -84,7 +88,7 @@ class HouseForSale {
 		this.finishedBasement = finishedBasement; // same
 	}
 }
-
+/*
 // EXAMPLE #1 - notice we are not including the last two properties as arguments
 let cottageOnOakDrive = new HouseForSale("single-family", 1942, 132500, 1284, 3, 1.5);
 console.log(cottageOnOakDrive); // last two have default values
@@ -92,7 +96,7 @@ console.log(cottageOnOakDrive); // last two have default values
 // EXAMPLE #2 - Here we specify 'true' for garage, but leave out basement
 let duplexOnWalnutAvenue = new HouseForSale("multi-family", 1968, 259000, 2972, 5, 3, true);
 console.log(duplexOnWalnutAvenue); // garage is true, but basement keeps default
-
+*/
 // EXAMPLE #3 - Note that in order to instantiate an object with the basement property being true, we have to assign a value for the garage property even if it is still false. 
 let mansionOnMainStreet = new HouseForSale("single-family", 1902, 694000, 4418, 8, 4, false, true);
 console.log(mansionOnMainStreet);
@@ -100,7 +104,14 @@ console.log(mansionOnMainStreet);
 
 // TODO: Pretend you're a realtor. Create 3-4 more houses, some with and some without optional parameters
 
+let condoOnCottleVille = new HouseForSale("condo","1995",450000,3344,3,2,true,false);
+console.log(condoOnCottleVille);
 
+let townHomeOnColumbiaMeadows = new HouseForSale("single-family-ranch","2024",560322,4003,4,3);
+console.log(townHomeOnColumbiaMeadows);
+
+let farmHouseOnStTheresa = new HouseForSale("farm-house","1986",128900,7454,2,2,false,true);
+console.log(farmHouseOnStTheresa);
 
 /**** CLASS METHODS ****/
 
@@ -135,19 +146,32 @@ class Produce {
 
 // EXAMPLE #1
 let grannySmithApple = new Produce("Granny Smith apple", "fruit", "pound", 0.99);
-console.log(grannySmithApple);
+//console.log(grannySmithApple);
 grannySmithApple.describe();
 grannySmithApple.calculateTotal(3); // 3 pounds
 
 // EXAMPLE #2
 let yellowBellPepper = new Produce("yellow bell pepper", "vegetable", "each", 1.12);
-console.log(yellowBellPepper);
+//console.log(yellowBellPepper);
 yellowBellPepper.describe();
 yellowBellPepper.calculateTotal(5); // 5 peppers
 
 // TODO: What's going in your dinner salad tonight? Create 3-4 more objects, then call 
 // describe() and calculateTotal() for each
+let tomato = new Produce("tomato","both vegetable & fruit","pound",1.29);
+console.log(tomato);
+tomato.describe();
+tomato.calculateTotal(8);
 
+let lettuce = new Produce("lettuce","vegetable","each",2.01);
+console.log(lettuce);
+lettuce.describe();
+lettuce.calculateTotal(12);
+
+let radish = new Produce("radish","vegetable","pound",2.49);
+console.log(radish);
+radish.describe();
+radish.calculateTotal(5);
 
 
 /**** TIME TO FLY SOLO ****/
@@ -157,21 +181,35 @@ yellowBellPepper.calculateTotal(5); // 5 peppers
 
 	Give your class the following properties: name, category, and soundsLike. 
 	
-	Write a method outside the constructor called describe() that incorporates all three properties into a sentence and prints it to the console. Remember the syntax you must use to reference the properties that are inside the constructor.
+	Write a method outside the constructor called describe() that incorporates all three properties into a sentence and prints it 
+	to the console. Remember the syntax you must use to reference the properties that are inside the constructor.
 */
+class Instrument
+{
+	constructor(name,category,soundsLike){
+		this.name = name;
+		this.category = category;
+		this.soundsLike = soundsLike;
+	}
 
+	describe()
+	{
+		console.log(`The name of the instrument is ${this.name}, belonging to the category of ${this.category}. The music sounds like ${this.soundsLike}`);
+	}
+
+}
 
 
 // TODO: Once your class is complete, un-comment the lines below to test it out.
 
-// let violin = new Instrument("violin", "string", "a whirlwind romance -- and the inevitable heartbreak that follows after");
-// violin.describe();
+let violin = new Instrument("violin", "string", "a whirlwind romance -- and the inevitable heartbreak that follows after");
+violin.describe();
 
-// let tuba = new Instrument("tuba", "brass", "Mr. Snuffleupagus trying to dance");
-// tuba.describe();
+let tuba = new Instrument("tuba", "brass", "Mr. Snuffleupagus trying to dance");
+tuba.describe();
 
-// let ukelele = new Instrument("ukelele", "string", "Barney and the Teletubbies got drunk and filmed a Hawaiian special together");
-// ukelele.describe();
+let ukelele = new Instrument("ukelele", "string", "Barney and the Teletubbies got drunk and filmed a Hawaiian special together");
+ukelele.describe();
 
-// let bagpipe = new Instrument("bagpipe", "woodwind", "200 third-graders had a recorder recital next to a turbojet engine roaring at full throttle");
-// bagpipe.describe();
+let bagpipe = new Instrument("bagpipe", "woodwind", "200 third-graders had a recorder recital next to a turbojet engine roaring at full throttle");
+bagpipe.describe();
