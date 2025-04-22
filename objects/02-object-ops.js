@@ -35,8 +35,8 @@ for (let someKey in sunsetDiner) {
 // Let's say we don't know which keys have arrays, but we need to print only the elements in any arrays found. We'll use a conditional with the helpful Array method .isArray() to see if the key holds an array in the first place, then loop to print the array's contents if that evaluates to true.
 for (let aKey in sunsetDiner) {
 	if (Array.isArray(sunsetDiner[aKey])) {
-		for (let i=0; i < sunsetDiner[aKey].length; i++) {
-			console.log(sunsetDiner[aKey][i]);
+		for (el of sunsetDiner[aKey]) {
+			console.log(el);
 		}
 	}
 }
