@@ -23,9 +23,11 @@ To fully benefit from this practice, don't look at the solution until you have d
 
 You now have a direct link to my original repo! 
 
+Use the command `git remote -v` to verify that you have linked to both `origin` (your forked repo) and `upstream` (my original repo)
+
 #### Update your repo anytime I make changes in the future:
 1. On your local machine, make sure you are in the correct directory in the terminal.
-1. If you have any uncommitted changes, stage and commit them.
+1. If you have any uncommitted changes, **stage** and **commit** them.
 1. Make sure you are in the branch you wish to update (e.g. `main`)
 1. Use the command `git fetch upstream` so your local repo has knowledge of changes I made in my repo
 1. Use the command `git rebase upstream/main` to sync your repo
